@@ -62,3 +62,19 @@
 .gif-list .gif:hover {
   opacity: 0.6;
 }
+
+.gifs {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.gif {
+  padding: 0 2px;
+  display: inline-grid;
+}
+.loader {
+  color: grey;
+
+}
