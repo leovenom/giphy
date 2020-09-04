@@ -4,21 +4,34 @@ import Loader from "./Loader";
 
 const Giphy = () => {
   const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false)
+  const [search, setSearch] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
     
   useEffect(()=> {
      const fetchData = async () => {
-        setIsLoading(true)
-      const results = await axios(
-        "https://api.giphy.com/v1/gifs/trending", {
-          params: {
-            api_key:'w3pDICM0iVgPovQb7sYOjbXvfOHnXX1k',
-            limit: 500
-          }
-      });
+      setIsError(false)  
+      setIsLoading(true)
 
-      console.log(results)
-      setData(results.data.data);
+      try {
+        const results = await axios(
+          "https://api.giphy.com/v1/gifs/trending", {
+            params: {
+              api_key:'w3pDICM0iVgPovQb7sYOjbXvfOHnXX1k',
+              limit: 1000
+            }
+        });
+
+        console.log(results)
+        setData(results.data.data);
+
+      } catch (err) {
+        setIsError(true)
+        setTimeout(()=> setIsError(false), 4000)
+      }
+
+      
+
 
       setIsLoading(false)
      };
@@ -38,8 +51,56 @@ const Giphy = () => {
       );
     });
   };
+  const renderError = () => {
+    if(isError) {
+      return (
+        <div className="alert alert-danger alert-dismissible fade show" role="alert">
+          Unable to get  Gifs, please try  againin a few minutes
+        </div>
+      );
+    }
+  };
 
-  return <div className="right-scene">{renderGifs()}</div>;
+  const  handleSearchChange =  event => {
+    setSearch(event.target.value);
+  }
+
+  const handleSubmit = async event => {
+
+    event.preventDefault();
+    setIsError(false);
+    setIsLoading(true);
+
+    const results = await axios("https://api.giphy.com/v1/gifs/search", {
+      params: {
+        api_key:'w3pDICM0iVgPovQb7sYOjbXvfOHnXX1k',
+        q: search
+      } 
+    })
+    setData(results.data.data);
+    setIsLoading(false);
+  };
+
+  return (
+
+
+  <div className="m-2">
+    {renderError()}
+    <form className="form-inline m-2">
+      <input 
+        value={search}
+        onChange={handleSearchChange}
+        Type="text"
+        placeholder="search"
+        className="form-search"
+      />
+      <button onCLick={handleSubmit}type="submit" className="btn btn -primary">
+      </button>
+    </form>
+    <div className="right-scene">{renderGifs()}</div>
+  </div>
+  );
 };
 
 export default Giphy; 
+
