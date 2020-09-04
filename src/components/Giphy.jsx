@@ -76,7 +76,7 @@ const Giphy = () => {
         api_key:'w3pDICM0iVgPovQb7sYOjbXvfOHnXX1k',
         q: search
       } 
-    });
+    })
     setData(results.data.data);
     setIsLoading(false);
   };
@@ -94,7 +94,7 @@ const Giphy = () => {
         placeholder="search"
         className="form-search"
       />
-      <button onCLick={handleSubmit} type="submit" className="btn btn primary">
+      <button onCLick={handleSubmit}type="submit" className="btn btn -primary">
       </button>
     </form>
     <div className="right-scene">{renderGifs()}</div>
