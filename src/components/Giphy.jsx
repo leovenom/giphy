@@ -18,7 +18,7 @@ const Giphy = () => {
           "https://api.giphy.com/v1/gifs/trending", {
             params: {
               api_key:'w3pDICM0iVgPovQb7sYOjbXvfOHnXX1k',
-              limit: 1000
+              limit:  100
             }
         });
 
@@ -61,8 +61,8 @@ const Giphy = () => {
     }
   };
 
-  const  handleSearchChange =  event => {
-    setSearch(event.target.value);
+  const  handleSearchChange =  (event) => {
+    setSearch(event.target.value)
   }
 
   const handleSubmit = async event => {
@@ -70,7 +70,7 @@ const Giphy = () => {
     event.preventDefault();
     setIsError(false);
     setIsLoading(true);
-
+    
     const results = await axios("https://api.giphy.com/v1/gifs/search", {
       params: {
         api_key:'w3pDICM0iVgPovQb7sYOjbXvfOHnXX1k',
@@ -81,12 +81,12 @@ const Giphy = () => {
     setIsLoading(false);
   };
 
-  return (
+  return ( 
 
 
   <div className="m-2">
     {renderError()}
-    <form className="form-inline m-2">
+    <form className="form-inline justify-content-center m-2">
       <input 
         value={search}
         onChange={handleSearchChange}
@@ -94,7 +94,8 @@ const Giphy = () => {
         placeholder="search"
         className="form-search"
       />
-      <button onCLick={handleSubmit}type="submit" className="btn btn -primary">
+      <button onClick={handleSubmit} type="submit" className="btn btn-primary mx-2">
+      go
       </button>
     </form>
     <div className="right-scene">{renderGifs()}</div>
