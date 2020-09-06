@@ -94,7 +94,7 @@ const Giphy = () => {
         placeholder="search"
         className="form-search"
       />
-      <button onCLick={handleSubmit} type="submit" className="btn btn -primary mx-2">
+      <button onClick={handleSubmit} type="submit" className="btn btn -primary mx-2">
       go
       </button>
     </form>
