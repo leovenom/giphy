@@ -1,20 +1,18 @@
 import React from 'react';
 import Giphy from "./components/Giphy";
-import Search from "./components/Search"
 import "./App.css";
 
 const App = () => {
   return (
       <div className="app">
-    <div className="left-scene">
-      <input className="form-search"/>
+    {/* <div className="left-scene">
       <div className="selected-gif">
         THE SELECTED GIF HERE
       </div>
-    </div>
+    </div> */}
 
-    <div className="right-scene">
-      THE SIDEBAR GIF LIST HERE
+    <div className="">
+      {/* THE SIDEBAR GIF LIST HERE */}
       <Giphy />
     </div>
   </div>

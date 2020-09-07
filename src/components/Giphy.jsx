@@ -84,7 +84,7 @@ const Giphy = () => {
   return ( 
 
 
-  <div className="m-2">
+  <div className="left-scene m-2">
     {renderError()}
     <form className="form-inline justify-content-center m-2">
       <input 
@@ -94,7 +94,7 @@ const Giphy = () => {
         placeholder="search"
         className="form-search"
       />
-      <button onClick={handleSubmit} type="submit" className="btn btn-primary mx-2">
+      <button onClick={handleSubmit} type="submit" className="btn btn-primary">
       go
       </button>
     </form>
