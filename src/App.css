@@ -3,13 +3,6 @@
   height: 100vh;
 }
 
-.left-scene {
-  flex: 0 0 60%;
-  position: sticky;
-  display: flex;
-  flex-direction: column;
-}
-
 .form-search {
   padding: 40px;
   border: none;
@@ -41,13 +34,7 @@
   margin: auto;
 }
 
-.right-scene { 
-  flex: 0 0 40%;
-  background-color: #ecf0f1;
-  overflow: scroll;
-}
-
-.right-scene .gif-list {
+.gif-list {
   column-count: 2;
   column-gap: 5px;
   padding: 5px;

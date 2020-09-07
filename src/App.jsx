@@ -5,11 +5,10 @@ import "./App.css";
 const App = () => {
   return (
       <div className="app">
-
-    <div className="">
-      <Giphy />
-    </div>
-  </div>
+        <div className="">
+            <Giphy />
+        </div>
+      </div>
   );
 };
 
