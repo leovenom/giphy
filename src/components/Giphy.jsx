@@ -84,7 +84,7 @@ const Giphy = () => {
   return ( 
 
 
-  <div className="left-scene m-2">
+  <div className="m-2">
     {renderError()}
     <form className="form-inline justify-content-center m-2">
       <input 
@@ -98,7 +98,7 @@ const Giphy = () => {
       go
       </button>
     </form>
-    <div className="right-scene">{renderGifs()}</div>
+    <div className="">{renderGifs()}</div>
   </div>
   );
 };
